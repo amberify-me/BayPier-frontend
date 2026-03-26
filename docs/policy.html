@@ -4,7 +4,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>白漂 BayPier - 政策详情</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script>
   tailwind.config = {
@@ -14,28 +14,25 @@
           "primary-fixed":"#d0e4ff","outline":"#707883","surface-container":"#edeeef",
           "primary":"#005f9c","outline-variant":"#bfc7d4","secondary-container":"#cfe6f2",
           "on-surface":"#191c1d","surface-variant":"#e1e3e4","primary-container":"#0079c4",
-          "on-background":"#191c1d","surface-container-low":"#f3f4f5",
-          "primary-fixed-dim":"#9ccaff","on-primary":"#ffffff","on-surface-variant":"#3f4752",
+          "surface-container-low":"#f3f4f5","primary-fixed-dim":"#9ccaff",
+          "on-primary":"#ffffff","on-surface-variant":"#3f4752",
           "surface":"#f8f9fa","surface-container-lowest":"#ffffff",
-          "surface-container-high":"#e7e8e9","on-primary-container":"#fdfcff",
-          "on-primary-fixed-variant":"#00497a","error":"#ba1a1a"
+          "surface-container-high":"#e7e8e9","error":"#ba1a1a"
         },
         fontFamily: { "headline":["Manrope","sans-serif"], "body":["Plus Jakarta Sans","sans-serif"] },
-        borderRadius: {"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"}
       }
     }
   }
 </script>
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { min-height: max(884px, 100dvh); }
-  .match-tag { position:absolute;top:0;right:0;padding:4px 12px;border-bottom-left-radius:12px;font-size:10px;font-weight:800;letter-spacing:0.05em; }
+  body { min-height: 100dvh; }
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface">
 
 <!-- Header -->
-<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,95,156,0.06)]">
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,95,156,0.06)]">
 <div class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
   <a href="index.html" class="flex items-center gap-2 no-underline">
     <span class="material-symbols-outlined text-sky-600">bubble_chart</span>
@@ -51,116 +48,90 @@
 
 <main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
 
-<!-- Breadcrumb -->
+<!-- 面包屑 -->
 <nav class="flex items-center gap-2 text-on-surface-variant text-sm mb-6">
-  <a href="match.html" class="hover:text-primary">政策库</a>
+  <a href="match.html" class="hover:text-primary no-underline">政策库</a>
   <span class="material-symbols-outlined text-xs">chevron_right</span>
-  <span class="text-primary font-semibold">政策详情</span>
+  <span class="text-primary font-semibold">详情</span>
 </nav>
 
-<!-- Hero -->
-<section class="mb-10">
-  <h2 class="text-3xl md:text-5xl font-extrabold font-headline text-on-surface tracking-tight leading-tight mb-4" id="policy-title">加载中...</h2>
-  <div class="flex flex-wrap items-center gap-3 mb-6">
-    <span class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl text-sm font-semibold text-on-surface-variant" id="policy-authority">
-      <span class="material-symbols-outlined text-primary text-sm">location_on</span>加载中
-    </span>
-    <span class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl text-sm font-semibold text-on-surface-variant" id="policy-expiry">
-      <span class="material-symbols-outlined text-primary text-sm">schedule</span>加载中
-    </span>
-    <span class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl text-sm font-semibold text-on-surface-variant" id="policy-amount-tag">
-      <span class="material-symbols-outlined text-primary text-sm">payments</span>加载中
-    </span>
-  </div>
-  <a class="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold shadow-[0_20px_40px_rgba(0,95,156,0.12)] active:scale-95 transition-all no-underline" href="#" id="policy-official-link" style="display:none">
-    前往官方页面 <span class="material-symbols-outlined">open_in_new</span>
-  </a>
-</section>
+<!-- 标题 -->
+<h1 class="text-3xl md:text-4xl font-extrabold font-headline tracking-tight mb-4" id="policy-title">加载中...</h1>
+<div class="flex flex-wrap items-center gap-2 mb-6" id="policy-info-bar"></div>
 
-<!-- Content Grid -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-  <!-- Left Column -->
-  <div class="lg:col-span-8 flex flex-col gap-8">
+  <!-- 左栏：主内容 -->
+  <div class="lg:col-span-8 space-y-6">
 
     <!-- 补贴金额 -->
-    <div class="bg-primary-fixed/20 rounded-xl p-8 border border-primary-fixed/40">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="material-symbols-outlined text-primary text-2xl">payments</span>
-        <h3 class="text-2xl font-bold font-headline">补贴金额</h3>
-      </div>
-      <p class="text-3xl font-black text-primary font-headline" id="policy-money">加载中...</p>
+    <div class="bg-primary-fixed/20 rounded-xl p-6 border border-primary-fixed/40">
+      <p class="text-sm text-on-surface-variant mb-1">补贴金额</p>
+      <p class="text-2xl font-black text-primary font-headline" id="policy-money">加载中...</p>
+      <a href="#" id="policy-link" class="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-3 no-underline hover:underline" style="display:none">
+        查看官方页面 <span class="material-symbols-outlined text-base">open_in_new</span>
+      </a>
     </div>
 
     <!-- 申报条件 -->
-    <div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,95,156,0.06)] border border-sky-50">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
-          <span class="material-symbols-outlined text-primary">verified_user</span>
-        </div>
-        <h3 class="text-2xl font-bold font-headline">申报条件</h3>
-      </div>
-      <ul class="space-y-4" id="policy-rules">
-        <li class="text-on-surface-variant p-4">加载中...</li>
+    <div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,95,156,0.04)]">
+      <h2 class="text-xl font-bold font-headline mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">verified_user</span>申报条件
+      </h2>
+      <ul class="space-y-3" id="policy-rules">
+        <li class="text-on-surface-variant p-3">加载中...</li>
       </ul>
     </div>
 
     <!-- 申报路径 -->
-    <div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,95,156,0.06)] border border-sky-50">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
-          <span class="material-symbols-outlined text-primary">route</span>
-        </div>
-        <h3 class="text-2xl font-bold font-headline">申报路径</h3>
-      </div>
-      <div class="relative space-y-8" id="policy-application">
-        <p class="text-on-surface-variant p-4">加载中...</p>
+    <div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,95,156,0.04)]">
+      <h2 class="text-xl font-bold font-headline mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">route</span>申报路径
+      </h2>
+      <div id="policy-application">
+        <p class="text-on-surface-variant p-3">加载中...</p>
       </div>
     </div>
 
-    <!-- 详细说明 -->
-    <div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,95,156,0.06)] border border-sky-50" id="policy-content-section" style="display:none">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
-          <span class="material-symbols-outlined text-primary">article</span>
-        </div>
-        <h3 class="text-2xl font-bold font-headline">详细说明</h3>
-      </div>
-      <div class="text-on-surface-variant leading-relaxed whitespace-pre-line" id="policy-content"></div>
+    <!-- 详细说明（有内容时显示） -->
+    <div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,95,156,0.04)]" id="policy-content-section" style="display:none">
+      <h2 class="text-xl font-bold font-headline mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">article</span>详细说明
+      </h2>
+      <div class="text-on-surface-variant text-sm leading-relaxed whitespace-pre-line" id="policy-content"></div>
     </div>
   </div>
 
-  <!-- Right Column -->
-  <div class="lg:col-span-4 flex flex-col gap-8">
+  <!-- 右栏：侧边栏 -->
+  <div class="lg:col-span-4 space-y-6">
 
-    <!-- 快速切换城市 -->
-    <div class="bg-surface-container-low rounded-xl p-6">
-      <h3 class="font-label text-xs font-bold uppercase tracking-wider text-primary mb-4">切换城市</h3>
-      <select id="city-switcher" class="w-full bg-surface-container-high border-none rounded-lg px-3 py-2 text-sm">
-        <option value="">选择其他城市查看政策</option>
-      </select>
+    <!-- 切换城市 -->
+    <div class="bg-surface-container-low rounded-xl p-5">
+      <p class="text-xs font-bold uppercase tracking-wider text-primary mb-3">切换城市</p>
+      <div id="city-selector"></div>
     </div>
 
-    <!-- 政策摘要 -->
-    <div class="bg-surface-container-high rounded-xl p-8 border border-sky-100">
-      <h3 class="text-xl font-bold font-headline mb-4">政策摘要</h3>
-      <p class="text-on-surface-variant text-sm leading-relaxed mb-6" id="policy-summary">加载中...</p>
-      <div class="space-y-3 text-sm" id="policy-meta"></div>
+    <!-- 摘要 -->
+    <div class="bg-surface-container-high rounded-xl p-6">
+      <h3 class="font-bold font-headline mb-3">政策摘要</h3>
+      <p class="text-on-surface-variant text-sm leading-relaxed" id="policy-summary">加载中...</p>
     </div>
 
-    <!-- 标签 & 材料 -->
-    <div class="bg-surface-container-high rounded-xl p-8 border border-sky-100" id="policy-tags-section" style="display:none">
-      <h3 class="text-xl font-bold font-headline mb-4">标签</h3>
+    <!-- Meta -->
+    <div class="bg-surface-container-high rounded-xl p-6">
+      <h3 class="font-bold font-headline mb-3">基本信息</h3>
+      <div class="text-sm" id="policy-meta"></div>
+    </div>
+
+    <!-- 标签（有内容时显示） -->
+    <div class="bg-surface-container-high rounded-xl p-6" id="policy-tags-section" style="display:none">
+      <h3 class="font-bold font-headline mb-3">标签</h3>
       <div class="flex flex-wrap gap-2" id="policy-tags"></div>
     </div>
 
-    <!-- 返回列表 -->
-    <a href="match.html" class="bg-primary-fixed rounded-xl p-8 relative overflow-hidden border border-sky-100 block hover:shadow-lg transition-shadow no-underline">
-      <div class="relative z-10">
-        <h4 class="text-primary-container font-black text-lg mb-2">查看更多政策</h4>
-        <p class="text-on-primary-fixed-variant text-sm">返回政策列表，发现更多适合你的补贴。</p>
-      </div>
-      <span class="material-symbols-outlined absolute -bottom-6 -right-6 text-primary/10 text-9xl transform rotate-12">bubble_chart</span>
+    <!-- 返回 -->
+    <a href="match.html" class="block bg-primary-fixed rounded-xl p-6 no-underline hover:shadow-lg transition-shadow">
+      <p class="text-primary font-bold">返回政策列表</p>
+      <p class="text-on-surface-variant text-sm mt-1">浏览其他城市的补贴政策</p>
     </a>
   </div>
 </div>
@@ -168,17 +139,14 @@
 
 <!-- Bottom Nav -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
-  <a class="flex flex-col items-center text-slate-400 px-5 py-2 active:scale-90 duration-200" href="index.html">
-    <span class="material-symbols-outlined">home</span>
-    <span class="text-[11px] font-semibold uppercase tracking-wider">首页</span>
+  <a class="flex flex-col items-center text-slate-400 px-5 py-2" href="index.html">
+    <span class="material-symbols-outlined">home</span><span class="text-[11px] font-semibold">首页</span>
   </a>
-  <a class="flex flex-col items-center bg-sky-100 text-sky-700 rounded-2xl px-5 py-2 active:scale-90 duration-200" href="match.html">
-    <span class="material-symbols-outlined">description</span>
-    <span class="text-[11px] font-semibold uppercase tracking-wider">政策库</span>
+  <a class="flex flex-col items-center bg-sky-100 text-sky-700 rounded-2xl px-5 py-2" href="match.html">
+    <span class="material-symbols-outlined">description</span><span class="text-[11px] font-semibold">政策库</span>
   </a>
-  <a class="flex flex-col items-center text-slate-400 px-5 py-2 active:scale-90 duration-200" href="resume.html">
-    <span class="material-symbols-outlined">person</span>
-    <span class="text-[11px] font-semibold uppercase tracking-wider">我的</span>
+  <a class="flex flex-col items-center text-slate-400 px-5 py-2" href="resume.html">
+    <span class="material-symbols-outlined">person</span><span class="text-[11px] font-semibold">我的</span>
   </a>
 </nav>
 

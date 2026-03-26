@@ -1,158 +1,84 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>白漂 BayPier - 匹配结果</title>
+<title>白漂 BayPier - 政策库</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary-fixed": "#d0e4ff",
-              "outline": "#707883",
-              "on-error-container": "#93000a",
-              "surface-container": "#edeeef",
-              "primary": "#005f9c",
-              "outline-variant": "#bfc7d4",
-              "secondary-container": "#cfe6f2",
-              "on-surface": "#191c1d",
-              "on-tertiary-fixed": "#2f1400",
-              "surface-variant": "#e1e3e4",
-              "inverse-primary": "#9ccaff",
-              "inverse-on-surface": "#f0f1f2",
-              "primary-container": "#0079c4",
-              "tertiary-fixed": "#ffdcc4",
-              "tertiary-container": "#b45e00",
-              "on-background": "#191c1d",
-              "surface-container-low": "#f3f4f5",
-              "on-tertiary-container": "#fffbff",
-              "secondary-fixed-dim": "#b4cad6",
-              "primary-fixed-dim": "#9ccaff",
-              "secondary-fixed": "#cfe6f2",
-              "tertiary-fixed-dim": "#ffb781",
-              "on-error": "#ffffff",
-              "on-secondary": "#ffffff",
-              "on-primary": "#ffffff",
-              "tertiary": "#8f4900",
-              "on-secondary-fixed-variant": "#354a53",
-              "surface-dim": "#d9dadb",
-              "on-primary-fixed": "#001d35",
-              "on-secondary-container": "#526772",
-              "on-primary-fixed-variant": "#00497a",
-              "error-container": "#ffdad6",
-              "on-tertiary-fixed-variant": "#703800",
-              "surface-container-highest": "#e1e3e4",
-              "surface-bright": "#f8f9fa",
-              "surface-tint": "#0062a0",
-              "on-surface-variant": "#3f4752",
-              "secondary": "#4c616c",
-              "inverse-surface": "#2e3132",
-              "on-secondary-fixed": "#071e27",
-              "error": "#ba1a1a",
-              "background": "#f8f9fa",
-              "surface-container-high": "#e7e8e9",
-              "surface": "#f8f9fa",
-              "surface-container-lowest": "#ffffff",
-              "on-primary-container": "#fdfcff",
-              "on-tertiary": "#ffffff"
-            },
-            fontFamily: {
-              "headline": ["Manrope", "sans-serif"],
-              "body": ["Plus Jakarta Sans", "sans-serif"],
-              "label": ["Plus Jakarta Sans", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "primary-fixed":"#d0e4ff","outline":"#707883","surface-container":"#edeeef",
+          "primary":"#005f9c","outline-variant":"#bfc7d4","secondary-container":"#cfe6f2",
+          "on-surface":"#191c1d","surface-variant":"#e1e3e4","primary-container":"#0079c4",
+          "surface-container-low":"#f3f4f5","primary-fixed-dim":"#9ccaff",
+          "on-primary":"#ffffff","on-surface-variant":"#3f4752",
+          "surface":"#f8f9fa","surface-container-lowest":"#ffffff",
+          "surface-container-high":"#e7e8e9","error":"#ba1a1a"
         },
+        fontFamily: { "headline":["Manrope","sans-serif"], "body":["Plus Jakarta Sans","sans-serif"] },
       }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      body {
-        background-color: #f8f9fa;
-        color: #191c1d;
-      }
-      .match-tag {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 4px 12px;
-        border-bottom-left-radius: 12px;
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
     }
-    </style>
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { min-height: 100dvh; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+</style>
 </head>
-<body class="font-body selection:bg-primary-fixed">
-<!-- TopAppBar -->
-<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(0,95,156,0.06)]">
+<body class="bg-surface font-body text-on-surface">
+
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,95,156,0.06)]">
 <div class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
-<a href="index.html" class="flex items-center gap-2 no-underline">
-<span class="material-symbols-outlined text-sky-600 dark:text-sky-400" data-icon="bubble_chart">bubble_chart</span>
-<span class="text-xl font-black text-sky-700 dark:text-sky-300 tracking-tighter font-headline">白漂 BayPier</span>
-</a>
-<div class="hidden md:flex items-center gap-6">
-<a class="text-sky-700 dark:text-sky-300 font-bold font-headline text-sm" href="index.html">首页</a>
-<a class="text-slate-500 dark:text-slate-400 hover:bg-sky-50 dark:hover:bg-sky-900/30 px-3 py-1 rounded-lg text-sm" href="match.html">政策库</a>
-<a class="text-slate-500 dark:text-slate-400 hover:bg-sky-50 dark:hover:bg-sky-900/30 px-3 py-1 rounded-lg text-sm" href="resume.html">个人中心</a>
-</div>
+  <a href="index.html" class="flex items-center gap-2 no-underline">
+    <span class="material-symbols-outlined text-sky-600">bubble_chart</span>
+    <span class="text-xl font-black text-sky-700 tracking-tighter font-headline">白漂 BayPier</span>
+  </a>
+  <nav class="hidden md:flex items-center gap-8">
+    <a class="text-slate-500 hover:bg-sky-50 px-3 py-1 rounded-lg text-sm font-headline" href="index.html">首页</a>
+    <a class="text-sky-700 font-bold text-sm font-headline" href="match.html">政策库</a>
+    <a class="text-slate-500 hover:bg-sky-50 px-3 py-1 rounded-lg text-sm font-headline" href="resume.html">个人中心</a>
+  </nav>
 </div>
 </header>
+
 <main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-<!-- Hero Summary Section -->
-<section class="mb-12 ml-0 md:ml-[8.5rem] mr-0 md:mr-[5.5rem]">
-<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4" id="results-title">
-                为您找到 <span class="text-primary">12</span> 项政策
-            </h1>
-<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed" id="results-subtitle">
-                基于您的个人画像，我们筛选出了最符合您当前职业发展与生活保障的专项补贴。每一项政策都是您开启新篇章的助力。
-            </p>
+
+<!-- 城市选择 + 标题 -->
+<section class="mb-8">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-2">
+    <div>
+      <h1 class="font-headline text-3xl md:text-5xl font-extrabold tracking-tight mb-2" id="results-title">政策库</h1>
+      <p class="text-on-surface-variant text-base" id="results-subtitle">选择城市查看该地区的人才补贴政策</p>
+    </div>
+    <div class="w-full md:w-64 flex-shrink-0" id="city-selector"></div>
+  </div>
 </section>
-<!-- Editorial Grid of Policies -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<!-- Filter Sidebar (Editorial style) -->
-<aside class="lg:col-span-3 space-y-8">
-<div class="bg-surface-container-low p-6 rounded-xl">
-<h3 class="font-label text-xs font-bold uppercase tracking-wider text-primary mb-4">当前画像</h3>
-<div class="space-y-3" id="profile-summary">
-<p class="text-sm text-on-surface-variant">加载中...</p>
+
+<!-- 政策列表 -->
+<div id="results-list">
+  <div class="text-center py-16 text-on-surface-variant"><p>加载中...</p></div>
 </div>
-</div>
-</aside>
-<!-- Main Results Feed -->
-<div class="lg:col-span-9 space-y-6" id="results-list">
-<div class="text-center py-16 text-on-surface-variant"><p>加载中...</p></div>
-</div>
-</div>
+
 </main>
-<!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0_-10px_30px_rgba(0,0,0,0.03)] md:hidden">
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="index.html">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-body text-[11px] font-semibold uppercase tracking-wider">首页</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-200 rounded-2xl px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="match.html">
-<span class="material-symbols-outlined" data-icon="Description">description</span>
-<span class="font-body text-[11px] font-semibold uppercase tracking-wider">政策</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="resume.html">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-body text-[11px] font-semibold uppercase tracking-wider">我的</span>
-</a>
+
+<!-- Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
+  <a class="flex flex-col items-center text-slate-400 px-5 py-2" href="index.html">
+    <span class="material-symbols-outlined">home</span><span class="text-[11px] font-semibold">首页</span>
+  </a>
+  <a class="flex flex-col items-center bg-sky-100 text-sky-700 rounded-2xl px-5 py-2" href="match.html">
+    <span class="material-symbols-outlined">description</span><span class="text-[11px] font-semibold">政策库</span>
+  </a>
+  <a class="flex flex-col items-center text-slate-400 px-5 py-2" href="resume.html">
+    <span class="material-symbols-outlined">person</span><span class="text-[11px] font-semibold">我的</span>
+  </a>
 </nav>
-  <script src="deploy.js"></script>
+
+<script src="deploy.js"></script>
 </body></html>
