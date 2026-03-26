@@ -1,7 +1,7 @@
 (function () {
   var SUPABASE_URL = 'https://xcvbeyntfgjfyifyicha.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_DZIaADi3MLC5yPKv8bLKag_CFUGSSyw';
-  var DEFAULT_CITY = { name: '\u676d\u5dde\u5e02', regionId: 'b0000000-0000-0000-0000-000000000001', province: '\u6d59\u6c5f\u7701' };
+  var DEFAULT_CITY = { name: '\u53a6\u95e8\u5e02', regionId: 'b0000000-0000-0000-0000-000000000011', province: '\u798f\u5efa\u7701' };
   var PROFILE_KEY = 'baypier-demo-profile';
   var CITY_TREE = {
     '\u6d59\u6c5f\u7701': [
@@ -215,13 +215,10 @@
     return '<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,95,156,0.06)]"><h2 class="font-headline text-2xl font-bold text-on-surface mb-3">\u6682\u65e0\u53ef\u5c55\u793a\u653f\u7b56</h2><p class="text-on-surface-variant leading-relaxed">\u5f53\u524d\u672a\u68c0\u7d22\u5230\u201c' + escapeHtml(cityName) + '\u201d\u7684 active \u653f\u7b56\u6570\u636e\u3002</p></article>';
   }
   function submitHomeSearch(profile) {
-    if (!profile.province) {
-      showFeedback('\u8bf7\u5148\u9009\u62e9\u7701\u4efd\u3002', true);
-      return;
-    }
     if (!profile.regionId) {
-      showFeedback('\u8bf7\u5728\u540c\u4e00\u4e2a\u4e0b\u62c9\u6846\u91cc\u518d\u9009\u62e9\u57ce\u5e02\u3002', true);
-      return;
+      profile.province = DEFAULT_CITY.province;
+      profile.city = DEFAULT_CITY.name;
+      profile.regionId = DEFAULT_CITY.regionId;
     }
     saveProfile(profile);
     var next = 'match.html?city=' + encodeURIComponent(profile.city) + '&regionId=' + encodeURIComponent(profile.regionId) + '&province=' + encodeURIComponent(profile.province);
@@ -345,9 +342,9 @@
       var text = textOf(link).toLowerCase();
       var iconEl = qs('.material-symbols-outlined', link);
       var icon = textOf(iconEl).toLowerCase();
-      if (text.indexOf('home') !== -1 || icon === 'home') link.href = 'index.html';
-      else if (text.indexOf('polic') !== -1 || icon === 'description') link.href = 'match.html';
-      else if (text.indexOf('profile') !== -1 || icon === 'person') link.href = 'resume.html';
+      if (text.indexOf('home') !== -1 || text.indexOf('\u9996\u9875') !== -1 || icon === 'home') link.href = 'index.html';
+      else if (text.indexOf('polic') !== -1 || text.indexOf('\u653f\u7b56') !== -1 || icon === 'description') link.href = 'match.html';
+      else if (text.indexOf('profile') !== -1 || text.indexOf('\u4e2a\u4eba') !== -1 || text.indexOf('\u6211\u7684') !== -1 || icon === 'person') link.href = 'resume.html';
     });
   }
   document.addEventListener('DOMContentLoaded', function () {
