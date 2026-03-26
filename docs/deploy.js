@@ -208,11 +208,6 @@
       return;
     }
 
-    // 城市切换器
-    buildCitySelector('#city-selector', currentCity(), function (newCity) {
-      go('match.html?city=' + encodeURIComponent(newCity.name) + '&regionId=' + encodeURIComponent(newCity.id));
-    });
-
     fetchPolicy(id).then(function (rows) {
       var p = rows && rows[0];
       if (!p) {
