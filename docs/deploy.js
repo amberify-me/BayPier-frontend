@@ -286,17 +286,37 @@
       return;
     }
 
+    // 城市切换器
+    var switcher = qs('#city-switcher');
+    if (switcher) {
+      Object.keys(CITY_TREE).forEach(function (prov) {
+        CITY_TREE[prov].forEach(function (c) {
+          var opt = document.createElement('option');
+          opt.value = c.regionId;
+          opt.textContent = c.name;
+          switcher.appendChild(opt);
+        });
+      });
+      switcher.addEventListener('change', function () {
+        if (!switcher.value) return;
+        var opt = switcher.options[switcher.selectedIndex];
+        go('match.html?city=' + encodeURIComponent(opt.textContent) + '&regionId=' + encodeURIComponent(switcher.value));
+      });
+    }
+
     fetchPolicyDetail(id).then(function (p) {
       if (!p) throw new Error('政策不存在');
       var region = p.regions || {};
       var rules = p.policy_eligibility_rules || [];
       var tags = (p.policy_tags || []).map(function (t) { return t.tag; }).filter(Boolean);
 
+      // Hero
       setText('#policy-title', p.title);
-      setText('#policy-authority', '适用地区：' + (region.name || '未知') + (p.verified ? ' · 已核验' : ' · 待核验'));
-      setText('#policy-expiry', '时限：' + (p.time_limit_desc || '请以官方为准'));
-      setText('#policy-summary', p.summary || p.eligibility_summary || '请参考官方页面。');
-      setText('#policy-note', p.content || '以官方页面和主管部门审核为准。');
+      setText('#policy-authority', (region.name || '未知') + (p.verified ? ' · 已核验' : ' · 待核验'));
+      setText('#policy-expiry', p.time_limit_desc || '请以官方为准');
+      setText('#policy-amount-tag', moneyText(p));
+      setText('#policy-money', moneyText(p));
+      document.title = p.title + ' - 白漂 BayPier';
 
       // 官方链接
       var link = qs('#policy-official-link');
@@ -304,6 +324,21 @@
         link.href = p.official_url;
         link.target = '_blank';
         link.rel = 'noreferrer noopener';
+        link.style.display = '';
+      }
+
+      // 摘要
+      setText('#policy-summary', p.summary || p.eligibility_summary || '请参考官方页面了解完整信息。');
+
+      // Meta 信息
+      var meta = qs('#policy-meta');
+      if (meta) {
+        meta.innerHTML =
+          '<div class="flex justify-between"><span class="text-outline">地区</span><span class="font-semibold">' + escHtml(region.name || '未知') + '</span></div>' +
+          '<div class="flex justify-between"><span class="text-outline">类型</span><span class="font-semibold">' + escHtml(typeLabel(p.type)) + '</span></div>' +
+          '<div class="flex justify-between"><span class="text-outline">状态</span><span class="font-semibold">' + (p.status === 'active' ? '有效' : '待核实') + '</span></div>' +
+          (p.time_limit_desc ? '<div class="flex justify-between"><span class="text-outline">时限</span><span class="font-semibold">' + escHtml(p.time_limit_desc) + '</span></div>' : '') +
+          (p.confidence_score ? '<div class="flex justify-between"><span class="text-outline">置信度</span><span class="font-semibold">' + Math.round(p.confidence_score * 100) + '%</span></div>' : '');
       }
 
       // 申报条件
@@ -317,35 +352,43 @@
               '<div><p class="font-bold text-on-surface">' + escHtml(ruleLabel(r.rule_field)) + (r.is_required ? '' : '（可选）') + '</p>' +
               '<p class="text-on-surface-variant text-sm mt-1">' + escHtml(val) + '</p></div></li>';
           }).join('');
-        } else if (p.eligibility_summary) {
+        } else {
           qs('#policy-rules').innerHTML = '<li class="flex items-start gap-4 p-4 rounded-xl">' +
             '<span class="material-symbols-outlined text-primary mt-1">info</span>' +
             '<div><p class="font-bold text-on-surface">申请条件</p>' +
-            '<p class="text-on-surface-variant text-sm mt-1">' + escHtml(p.eligibility_summary) + '</p></div></li>';
+            '<p class="text-on-surface-variant text-sm mt-1">' + escHtml(p.eligibility_summary || '请以官方页面的完整说明为准。') + '</p></div></li>';
         }
       }
 
       // 申报路径
-      if (qs('#policy-application') && p.application_method) {
-        var steps = p.application_method.split(/[.;\n。]/).map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 4);
-        qs('#policy-application').innerHTML = steps.map(function (s, i) {
-          return '<div class="relative flex items-center gap-6">' +
-            (i < steps.length - 1 ? '<div class="absolute left-5 top-10 w-0.5 h-16 bg-outline-variant/30"></div>' : '') +
-            '<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold z-10">' + (i + 1) + '</div>' +
-            '<div class="flex-grow bg-surface-container-low p-6 rounded-2xl border border-sky-50">' +
-            '<p class="text-sm text-on-surface-variant">' + escHtml(s) + '</p></div></div>';
-        }).join('');
+      if (qs('#policy-application')) {
+        if (p.application_method) {
+          var steps = p.application_method.split(/[.;\n。]/).map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 4);
+          if (steps.length) {
+            qs('#policy-application').innerHTML = steps.map(function (s, i) {
+              return '<div class="relative flex items-center gap-6">' +
+                (i < steps.length - 1 ? '<div class="absolute left-5 top-10 w-0.5 h-16 bg-outline-variant/30"></div>' : '') +
+                '<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold z-10">' + (i + 1) + '</div>' +
+                '<div class="flex-grow bg-surface-container-low p-6 rounded-2xl border border-sky-50">' +
+                '<p class="text-sm text-on-surface-variant">' + escHtml(s) + '</p></div></div>';
+            }).join('');
+          }
+        } else {
+          qs('#policy-application').innerHTML = '<p class="text-on-surface-variant p-4">请查看官方页面了解申报流程。</p>';
+        }
       }
 
-      // 材料/标签
-      if (qs('#policy-materials')) {
-        var items = [];
-        if (p.official_url) items.push('官方申请链接');
-        items.push(typeLabel(p.type));
-        tags.forEach(function (t) { items.push(t); });
-        if (!items.length) items.push('请参考官方页面');
-        qs('#policy-materials').innerHTML = items.slice(0, 4).map(function (t) {
-          return '<div class="bg-white/60 p-4 rounded-xl flex items-center gap-3"><span class="material-symbols-outlined text-slate-400">description</span><span class="text-sm font-medium">' + escHtml(t) + '</span></div>';
+      // 详细说明
+      if (p.content && qs('#policy-content-section')) {
+        qs('#policy-content-section').style.display = '';
+        qs('#policy-content').textContent = p.content;
+      }
+
+      // 标签
+      if (tags.length && qs('#policy-tags-section')) {
+        qs('#policy-tags-section').style.display = '';
+        qs('#policy-tags').innerHTML = tags.map(function (t) {
+          return '<span class="bg-secondary-container text-on-surface-variant text-xs font-semibold px-3 py-1 rounded-full">' + escHtml(t) + '</span>';
         }).join('');
       }
     }).catch(function (err) {
