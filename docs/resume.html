@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>白漂 BayPier - 我的简历</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ba1a1a",
+              "surface-dim": "#d9dadb",
+              "on-primary-fixed": "#001d35",
+              "error-container": "#ffdad6",
+              "primary-container": "#0079c4",
+              "tertiary-fixed": "#ffdcc4",
+              "surface-tint": "#0062a0",
+              "on-tertiary-container": "#fffbff",
+              "secondary": "#4c616c",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#cfe6f2",
+              "inverse-primary": "#9ccaff",
+              "on-primary-container": "#fdfcff",
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1d",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed": "#2f1400",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e1e3e4",
+              "primary": "#005f9c",
+              "on-primary": "#ffffff",
+              "on-surface-variant": "#3f4752",
+              "background": "#f8f9fa",
+              "on-primary-fixed-variant": "#00497a",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#9ccaff",
+              "surface-container-highest": "#e1e3e4",
+              "surface": "#f8f9fa",
+              "on-secondary-fixed": "#071e27",
+              "surface-container-high": "#e7e8e9",
+              "outline": "#707883",
+              "tertiary-fixed-dim": "#ffb781",
+              "tertiary-container": "#b45e00",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#703800",
+              "on-secondary-container": "#526772",
+              "on-error": "#ffffff",
+              "secondary-container": "#cfe6f2",
+              "surface-container": "#edeeef",
+              "secondary-fixed-dim": "#b4cad6",
+              "primary-fixed": "#d0e4ff",
+              "outline-variant": "#bfc7d4",
+              "tertiary": "#8f4900",
+              "on-background": "#191c1d",
+              "inverse-on-surface": "#f0f1f2",
+              "on-secondary-fixed-variant": "#354a53"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8f9fa;
+        color: #191c1d;
+      }
+      .editorial-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,95,156,0.06)]">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-600" data-icon="bubble_chart">bubble_chart</span>
+<h1 class="text-xl font-black text-sky-700 tracking-tighter font-headline">白漂 BayPier</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-slate-500 font-headline font-bold">我的简历</span>
+<span class="material-symbols-outlined text-slate-500" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto">
+<!-- Hero Section / Header -->
+<div class="mb-10">
+<h2 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight mb-2">我的简历</h2>
+<p class="text-on-surface-variant font-body">管理您的职业档案与系统解析信息</p>
+</div>
+<div class="editorial-grid">
+<!-- Left Column: File Preview & Quick Stats -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Resume File Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(0,95,156,0.06)] transition-all hover:translate-y-[-4px]">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="description">description</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full">PDF 文件</span>
+</div>
+<h3 class="font-headline font-bold text-lg mb-1 truncate">张小明_个人简历_2024.pdf</h3>
+<p class="text-sm text-outline mb-6">上传于 2024年3月15日 · 1.2 MB</p>
+<div class="space-y-3">
+<button class="w-full py-3 px-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                            下载简历
+                        </button>
+<button class="w-full py-3 px-4 bg-surface-container-low text-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                            重新上传
+                        </button>
+</div>
+</div>
+<!-- Match Score / AI Insight -->
+<div class="bg-primary-fixed/30 p-6 rounded-xl border border-primary-fixed">
+<h4 class="font-headline font-bold text-primary-fixed-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                        解析状态
+                    </h4>
+<div class="flex items-end gap-2 mb-2">
+<span class="text-4xl font-headline font-black text-primary">98%</span>
+<span class="text-sm text-primary-fixed-variant pb-1">信息提取准确率</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- Right Column: Extracted Info (Bento Style) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Basic Info Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,95,156,0.06)] flex items-center gap-6">
+<div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-white shadow-md">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="professional headshot of a young man with a friendly smile wearing a clean white shirt in a bright office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-e8i4Q5v6vrzkalXiLdC4Qa9-s_MSZjpIL1yR7bL2s8Yb_pOEG7tsmcSA_uBnKESp5VWjiPiqljYdSx5fvpOebOTuQfqDjNWvJrK-ke6JN1tH6EA0lXt3fPJeKSTJ98-zvYVOEuFptiW_3SE036dnnLXk2VZazLZVCZpXNSdhiHIw_YCpUYlcTpTgLD7j6Sz3N17FH_cALiDRXQv1dcOGBHx4BybK-Dy-J08R6dgg6mJPCV3yLiEGfxdzr4Tk9mFQJ2qGgBNXmw"/>
+</div>
+<div>
+<h2 class="text-3xl font-headline font-extrabold text-on-surface">张小明</h2>
+<p class="text-primary font-medium">产品经理 / 交互设计师</p>
+<div class="flex flex-wrap gap-3 mt-3">
+<span class="flex items-center gap-1 text-sm text-on-surface-variant bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="male">male</span> 男
+                                </span>
+<span class="flex items-center gap-1 text-sm text-on-surface-variant bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="cake">cake</span> 1998-05-20
+                                </span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,95,156,0.06)] flex flex-col justify-center">
+<span class="text-xs font-label font-bold text-outline uppercase tracking-widest mb-1">当前学历</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">硕士研究生</h3>
+<p class="text-sm text-on-surface-variant mt-2">2023年 毕业</p>
+</div>
+</div>
+<!-- Education & Work (Editorial Section) -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,95,156,0.06)]">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+</div>
+<h3 class="text-xl font-headline font-bold">教育背景</h3>
+</div>
+<div class="relative pl-8 border-l-2 border-primary-fixed ml-4 space-y-10">
+<div class="relative">
+<div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-white"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-2">
+<div>
+<h4 class="text-lg font-bold">华中科技大学</h4>
+<p class="text-on-surface-variant">计算机科学与技术 · 硕士</p>
+</div>
+<span class="text-sm font-label text-primary font-bold">2020 - 2023</span>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-primary-fixed border-4 border-white"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-2">
+<div>
+<h4 class="text-lg font-bold">武汉大学</h4>
+<p class="text-on-surface-variant">软件工程 · 本科</p>
+</div>
+<span class="text-sm font-label text-outline font-bold">2016 - 2020</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Work Experience -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,95,156,0.06)]">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="work">work</span>
+</div>
+<h3 class="text-xl font-headline font-bold">工作/实习履历</h3>
+</div>
+<div class="space-y-8">
+<!-- Experience Item -->
+<div class="group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-lg font-bold group-hover:text-primary transition-colors">腾讯科技 (深圳) 有限公司</h4>
+<p class="text-sm font-semibold text-on-surface-variant">产品经理实习生 · 用户增长部</p>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed text-xs font-bold px-3 py-1 rounded-lg">2022.06 - 2023.01</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                负责移动端产品核心链路的优化，通过A/B测试将用户留存率提升了15%。主导了“校园合伙人”项目的原型设计与需求文档撰写，协调5人研发团队按时完成上线。
+                            </p>
+</div>
+<!-- Experience Item -->
+<div class="group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-lg font-bold group-hover:text-primary transition-colors">字节跳动</h4>
+<p class="text-sm font-semibold text-on-surface-variant">交互设计实习生 · 抖音架构组</p>
+</div>
+<span class="bg-surface-container-low text-outline text-xs font-bold px-3 py-1 rounded-lg">2021.07 - 2021.12</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                参与抖音搜索功能的信息架构梳理，负责设计规范组件库的维护。产出高保真交互原型30余份，并协助进行了10场用户可用性测试。
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-semibold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="Description">description</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-semibold uppercase tracking-wider">Policies</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-200 rounded-2xl px-5 py-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-semibold uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+  <script src="deploy.js"></script>
+</body></html>

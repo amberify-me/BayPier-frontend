@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>白漂 BayPier - 政策详情</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#d0e4ff",
+              "outline": "#707883",
+              "on-error-container": "#93000a",
+              "surface-container": "#edeeef",
+              "primary": "#005f9c",
+              "outline-variant": "#bfc7d4",
+              "secondary-container": "#cfe6f2",
+              "on-surface": "#191c1d",
+              "on-tertiary-fixed": "#2f1400",
+              "surface-variant": "#e1e3e4",
+              "inverse-primary": "#9ccaff",
+              "inverse-on-surface": "#f0f1f2",
+              "primary-container": "#0079c4",
+              "tertiary-fixed": "#ffdcc4",
+              "tertiary-container": "#b45e00",
+              "on-background": "#191c1d",
+              "surface-container-low": "#f3f4f5",
+              "on-tertiary-container": "#fffbff",
+              "secondary-fixed-dim": "#b4cad6",
+              "primary-fixed-dim": "#9ccaff",
+              "secondary-fixed": "#cfe6f2",
+              "tertiary-fixed-dim": "#ffb781",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary": "#8f4900",
+              "on-secondary-fixed-variant": "#354a53",
+              "surface-dim": "#d9dadb",
+              "on-primary-fixed": "#001d35",
+              "on-secondary-container": "#526772",
+              "on-primary-fixed-variant": "#00497a",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#703800",
+              "surface-container-highest": "#e1e3e4",
+              "surface-bright": "#f8f9fa",
+              "surface-tint": "#0062a0",
+              "on-surface-variant": "#3f4752",
+              "secondary": "#4c616c",
+              "inverse-surface": "#2e3132",
+              "on-secondary-fixed": "#071e27",
+              "error": "#ba1a1a",
+              "background": "#f8f9fa",
+              "surface-container-high": "#e7e8e9",
+              "surface": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#fdfcff",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #f8f9fa;
+        color: #191c1d;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .glass-header {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,95,156,0.06)]">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sky-600 dark:text-sky-400" data-icon="bubble_chart">bubble_chart</span>
+<h1 class="text-xl font-black text-sky-700 dark:text-sky-300 tracking-tighter font-headline">白漂 BayPier</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-sky-700 dark:text-sky-300 font-bold font-headline transition-colors" href="#">首页</a>
+<a class="text-slate-500 dark:text-slate-400 font-headline hover:bg-sky-50 dark:hover:bg-sky-900/30 px-3 py-1 rounded-lg transition-colors" href="#">政策中心</a>
+<a class="text-slate-500 dark:text-slate-400 font-headline hover:bg-sky-50 dark:hover:bg-sky-900/30 px-3 py-1 rounded-lg transition-colors" href="#">个人中心</a>
+</nav>
+<button class="md:hidden text-slate-500">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</a>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Title Section -->
+<section class="mb-12 md:ml-[8.5rem] md:mr-[5.5rem]">
+<nav class="flex items-center gap-2 text-on-surface-variant text-sm mb-6">
+<span>政策</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">政策详情</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[11px] font-bold uppercase tracking-wider mb-4">匹配政策</span>
+<h2 class="text-4xl md:text-5xl font-extrabold font-headline text-on-surface tracking-tight leading-tight" id="policy-title">
+                        青年创新创业扶持资金补贴
+                    </h2>
+<div class="mt-6 flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="account_balance">account_balance</span>
+<span class="text-sm font-semibold text-on-surface-variant" id="policy-authority">发文机关：市人力资源和社会保障局</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="event">event</span>
+<span class="text-sm font-semibold text-on-surface-variant" id="policy-expiry">有效期至：2025-12-31</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<a class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 shadow-[0_20px_40px_rgba(0,95,156,0.12)] active:scale-95 transition-all" href="#" id="policy-official-link">
+                        前往申请
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Eligibility -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Eligibility Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,95,156,0.06)] border border-sky-50">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="text-2xl font-bold font-headline">申报条件</h3>
+</div>
+<ul class="space-y-4" id="policy-rules">
+<li class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-bold text-on-surface">年龄要求</p>
+<p class="text-on-surface-variant text-sm mt-1">申报人年龄须在18周岁（含）至35周岁（含）之间，具有本市户籍或持有效居住证。</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-bold text-on-surface">学历资格</p>
+<p class="text-on-surface-variant text-sm mt-1">具有全日制大专及以上学历，且毕业时间在5年以内。</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-bold text-on-surface">企业注册</p>
+<p class="text-on-surface-variant text-sm mt-1">在本市依法注册登记，具有独立法人资格，且企业成立时间在6个月以上、3年以内。</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-bold text-on-surface">社保缴纳</p>
+<p class="text-on-surface-variant text-sm mt-1">申报人为企业法定代表人或持股30%以上的股东，并连续缴纳本市社保满6个月。</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Application Path -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,95,156,0.06)] border border-sky-50">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="route">route</span>
+</div>
+<h3 class="text-2xl font-bold font-headline">申报路径</h3>
+</div>
+<div class="relative space-y-12" id="policy-application">
+<!-- Step 1 -->
+<div class="relative flex items-center gap-6">
+<div class="absolute left-5 top-10 w-0.5 h-16 bg-outline-variant/30"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold z-10">1</div>
+<div class="flex-grow bg-surface-container-low p-6 rounded-2xl border border-sky-50">
+<h4 class="font-bold mb-2">在线提交预审</h4>
+<p class="text-sm text-on-surface-variant">登录政务服务平台，填报基本信息并上传初审材料副本。</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-center gap-6">
+<div class="absolute left-5 top-10 w-0.5 h-16 bg-outline-variant/30"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold z-10">2</div>
+<div class="flex-grow bg-surface-container-low p-6 rounded-2xl border border-sky-50">
+<h4 class="font-bold mb-2">线下递交材料</h4>
+<p class="text-sm text-on-surface-variant">预审通过后，携带纸质版材料至所属区行政服务中心受理窗口。</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-center gap-6">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold z-10">3</div>
+<div class="flex-grow bg-surface-container-low p-6 rounded-2xl border border-sky-50">
+<h4 class="font-bold mb-2">公示与资金拨付</h4>
+<p class="text-sm text-on-surface-variant">审核通过名单公示5个工作日。公示无异议后，资金将分批次拨付至企业账户。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Materials & Info -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Materials Card -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-sky-100">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-white/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="folder_open">folder_open</span>
+</div>
+<h3 class="text-xl font-bold font-headline">申请材料清单</h3>
+</div>
+<div class="space-y-3" id="policy-materials">
+<div class="bg-white/60 p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="description">description</span>
+<span class="text-sm font-medium">项目申请书（原件）</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</div>
+<div class="bg-white/60 p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="badge">badge</span>
+<span class="text-sm font-medium">法人身份证复印件</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</div>
+<div class="bg-white/60 p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="domain">domain</span>
+<span class="text-sm font-medium">企业营业执照副本</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</div>
+<div class="bg-white/60 p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="history_edu">history_edu</span>
+<span class="text-sm font-medium">创业计划书</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</div>
+</div>
+<div class="mt-8 border-t border-outline-variant/20 pt-6">
+<p class="text-xs text-on-surface-variant leading-relaxed" id="policy-note">
+                            注：所有复印件需加盖企业公章。若在线申报，请提供原件扫描件（PDF格式，大小不超过20MB）。
+                        </p>
+</div>
+</div>
+<!-- Contact & Help -->
+<div class="bg-primary-fixed rounded-xl p-8 relative overflow-hidden border border-sky-100">
+<div class="relative z-10">
+<h4 class="text-primary-container font-black text-lg mb-2">需要帮助？</h4>
+<p class="text-on-primary-fixed-variant text-sm mb-6" id="policy-summary">如有任何申报疑问，可直接联系我们的政策专家进行一对一咨询。</p>
+<a class="flex items-center gap-2 text-primary font-bold hover:underline" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                            联系在线客服
+                        </a>
+</div>
+<span class="material-symbols-outlined absolute -bottom-6 -right-6 text-primary/10 text-9xl transform rotate-12" data-icon="bubble_chart">bubble_chart</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0_-10px_30px_rgba(0,0,0,0.03)] border-t border-sky-50">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-semibold uppercase tracking-wider">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-200 rounded-2xl px-5 py-2 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="Description">description</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-semibold uppercase tracking-wider">政策详情</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-sky-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-semibold uppercase tracking-wider">我的</span>
+</a>
+</nav>
+  <script src="deploy.js"></script>
+</body></html>
