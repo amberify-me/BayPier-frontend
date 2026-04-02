@@ -4,28 +4,11 @@
 
 ---
 
-## 零、产品现状概览
-
-白漂项目目前有两个前端形态：
-
-| 形态 | 仓库 | 状态 | 说明 |
-|------|------|------|------|
-| **微信小程序**（主力） | `baipiao-hongwen` | 开发中，可真机预览 | 原生小程序，含 BFF 服务端 |
-| H5 官网（展示用） | `BayPier-frontend` | 已上线 | 纯静态页面，GitHub Pages 部署 |
-
-**生产环境：**
-- BFF API: `https://api.qungan.com`（腾讯云广州 42.194.216.190）
-- 数据库: Supabase（政策库 225 条，13 城市）+ SQLite（用户/auth 本地存储）
-- LLM: MiniMax-M2.7 via Yunwu API
-- 微信 AppID: `wx081d3689a29439c3`
-
----
-
 ## 一、产品概述
 
 **白漂 BayPier** 是一个面向应届生和青年人才的城市补贴政策查询平台。用户选择城市后，浏览该城市所有可申请的人才补贴政策，查看详细的申报条件和流程。
 
-**H5 线上地址**: https://amberify-me.github.io/BayPier-frontend/
+**线上地址**: https://amberify-me.github.io/BayPier-frontend/
 
 ---
 
